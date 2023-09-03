@@ -1,0 +1,54 @@
+[
+{
+  "model": "polls.question",
+  "pk": 2,
+  "fields": {
+    "question_text": "Who will win (MARK VS ELON)?",
+    "pub_date": "2023-09-03T12:26:21.971Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 3,
+  "fields": {
+    "question_text": "Will Threads replace X(Twitter)?",
+    "pub_date": "2023-09-03T12:44:30Z"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 4,
+  "fields": {
+    "question": 2,
+    "choice_text": "ELON",
+    "votes": 1
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 5,
+  "fields": {
+    "question": 2,
+    "choice_text": "MARK",
+    "votes": 1
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 6,
+  "fields": {
+    "question": 3,
+    "choice_text": "Yes",
+    "votes": 2
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 7,
+  "fields": {
+    "question": 3,
+    "choice_text": "No",
+    "votes": 0
+  }
+}
+]
