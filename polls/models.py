@@ -5,9 +5,10 @@ from django.utils import timezone
 from django.contrib import admin
 
 
-
-
 class Question(models.Model):
+    """
+    Question class represent their text and publication date
+    """
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
@@ -29,6 +30,10 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
+    """
+    Choice class represent a choice in a question with
+    text and vote count.
+    """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
