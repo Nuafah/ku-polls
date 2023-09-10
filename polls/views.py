@@ -41,14 +41,17 @@ class DetailView(generic.DetailView):
         try:
             question = get_object_or_404(Question, pk=kwargs['pk'])
         except Http404:
-            messages.error(request, message=f"Poll {kwargs['pk']} does not exist.")
+            messages.error(request,
+                           message=f"Poll {kwargs['pk']} does not exist.")
             return redirect('polls:index')
         else:
             if question.is_published():
                 return render(request, self.template_name,
                               {'question': question})
             else:
-                messages.error(request, message=f"Poll {kwargs['pk']} is not available.")
+                messages.error(request,
+                               message=f"Poll {kwargs['pk']} "
+                                       f"is not available.")
                 return redirect('polls:index')
 
 
@@ -73,6 +76,5 @@ def vote(request, question_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-
-
+        return HttpResponseRedirect(reverse('polls:results',
+                                            args=(question.id,)))
