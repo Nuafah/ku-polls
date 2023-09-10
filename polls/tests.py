@@ -36,6 +36,61 @@ class QuestionModelTests(TestCase):
         recent_question = Question(pub_date=time)
         self.assertIs(recent_question.was_published_recently(), True)
 
+    def test_is_published_with_future_pub_date(self):
+        """
+        is_published() return False for unpublished question
+        """
+        time = timezone.now() + datetime.timedelta(days=1)
+        future_question = Question(pub_date=time)
+        self.assertIs(future_question.is_published(), False)
+
+    def test_is_published_with_default_pub_date(self):
+        """
+        is_published() return True for default pub date(now)
+        """
+        now_question = Question()
+        self.assertIs(now_question.is_published(), True)
+
+    def test_is_published_with_date_in_the_past(self):
+        """
+        is_published() return True for past date
+        """
+        time = timezone.now() - datetime.timedelta(days=1)
+        past_question = Question(pub_date=time)
+        self.assertIs(past_question.is_published(), True)
+
+    def test_cannot_vote_unpublished_question(self):
+        """
+        can_vote() return False for unpublished question
+        """
+        time = timezone.now() + datetime.timedelta(days=1)
+        future_question = Question(pub_date=time)
+        self.assertIs(future_question.can_vote(), False)
+
+    def test_cannot_vote_on_closed_question(self):
+        """
+        can_vote() return False for closed question
+        """
+        pub = timezone.now() - datetime.timedelta(days=2)
+        end = timezone.now() - datetime.timedelta(days=1)
+        ended_question = Question(pub_date=pub, end_date=end)
+        self.assertIs(ended_question.can_vote(), False)
+
+    def test_can_vote_on_open_question(self):
+        """
+        can_vote() return True for open question
+        """
+        time = timezone.now() + datetime.timedelta(days=1)
+        open_question = Question(end_date=time)
+        self.assertIs(open_question.can_vote(), True)
+
+    def test_can_vote_on_null_end_date(self):
+        """
+        can_vote() return True for question that has no end date
+        """
+        question = Question()
+        self.assertIs(question.can_vote(), True)
+
 
 def create_question(question_text, days):
     """
