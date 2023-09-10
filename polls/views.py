@@ -1,8 +1,10 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
+from django.contrib import messages
+
 
 from .models import Choice, Question
 
@@ -30,6 +32,24 @@ class DetailView(generic.DetailView):
         Excludes any questions that aren't published yet.
         """
         return Question.objects.filter(pub_date__lte=timezone.now())
+
+    def get(self, request, *args, **kwargs):
+        """
+        Redirect the request to polls/ if polls/k does not
+        exist or unavailable.
+        """
+        try:
+            question = get_object_or_404(Question, pk=kwargs['pk'])
+        except Http404:
+            messages.error(request, message=f"Poll {kwargs['pk']} does not exist.")
+            return redirect('polls:index')
+        else:
+            if question.is_published():
+                return render(request, self.template_name,
+                              {'question': question})
+            else:
+                messages.error(request, message=f"Poll {kwargs['pk']} is not available.")
+                return redirect('polls:index')
 
 
 class ResultsView(generic.DetailView):
