@@ -1,0 +1,92 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$DmfAVLJheJ5QajM8eNFs1D$OzpTj752MzamuIWpYU8bLLt2BUT3P1P4HI0HC6i+LiA=",
+    "last_login": "2023-09-17T14:35:57.001Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "yasatsawin.k@ku.th",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-09-17T10:25:04.416Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$nzbt2JFHQMz2B66MiTaXdS$w3x1fbLYrYMFZPFo7hpQdhBs1wvTrT5/yNnLHRVkoTs=",
+    "last_login": "2023-09-17T14:21:32.677Z",
+    "is_superuser": false,
+    "username": "nuafah",
+    "first_name": "Yasatsawin",
+    "last_name": "Kuldejtitipun",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-17T10:40:00Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$2SFgDj0Omn1ozvB9WfYXlc$EG1RZKa4HCEO3zluEoR/tLG4NzfSuUGe9lr5jxOyzX8=",
+    "last_login": "2023-09-17T11:28:15.686Z",
+    "is_superuser": false,
+    "username": "nuazakung",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-17T11:28:15.459Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$BPU7UTwr8woJVHKOI7pFmH$Yx7/6MQ/e3k4Bvnf8Ri9e77aTibXvqaQ6OitgM/zSD4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "demo1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-17T14:36:40.240Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$9jGwNGZQlPS6KNu7SCNALi$j3c+onFvswzN+2lpa7nJJCadx6EP60m8DuBPPagCC80=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "demo2",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-17T14:36:57.137Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

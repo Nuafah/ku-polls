@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Please Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>
+            <button type="submit">Login</button>
+        </p>
+        <input type="hidden" name="next" value="{{next}}"/>
+    </form>
+    <form method="get" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <p>
+            <button type="submit">Signup</button>
+        </p>
+</form>
+
+    <form method="get" action="{% url 'polls:index' %}">
+        {% csrf_token %}
+        <p>
+            <button type="submit">Continue as Guest</button>
+        </p>
+    </form>
+
+</body>
+</html>
