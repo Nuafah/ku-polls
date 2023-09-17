@@ -13,12 +13,19 @@
         <input type="hidden" name="next" value="{{next}}"/>
     </form>
 
+    <form method="get" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <p>
+            <button type="submit">Signup</button>
+        </p>
+    </form>
+
     <form method="get" action="{% url 'polls:index' %}">
         {% csrf_token %}
         <p>
             <button type="submit">Continue as Guest</button>
         </p>
     </form>
-    {# If you have a sign-up page, then add a link here #}
+
 </body>
 </html>
