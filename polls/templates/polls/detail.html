@@ -2,13 +2,18 @@
     {% csrf_token %}
     <fieldset>
         <legend><h1>{{ question.question_text }}</h1></legend>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
         {% for choice in question.choice_set.all %}
-            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" {% if prev_vote and choice.id == prev_vote.choice.id %}checked{% endif %}>
             <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
         {% endfor %}
     </fieldset>
     <input type="submit" value="Vote">
 </form>
+
+{% if prev_vote %}
+    <p>You previously voted for {{ prev_vote.choice.choice_text }}</p>
+{% endif %}
 
 <a href="{% url 'polls:results' question.id %}">View Results</a>
 

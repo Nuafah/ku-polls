@@ -39,7 +39,9 @@ class DetailView(generic.DetailView):
         """
         Redirect the request to polls/ if polls/k does not
         exist or unavailable.
+
         """
+
         try:
             question = get_object_or_404(Question, pk=kwargs['pk'])
         except Http404:
@@ -47,6 +49,12 @@ class DetailView(generic.DetailView):
                            message=f"Poll {kwargs['pk']} does not exist.")
             return redirect('polls:index')
         else:
+            this_user = request.user
+            try:
+                prev_vote = Vote.objects.get(user=this_user,
+                                             choice__question=question)
+            except (Vote.DoesNotExist, TypeError):
+                prev_vote = None
             if not question.can_vote():
                 messages.error(request,
                                message=f"Poll {kwargs['pk']} "
@@ -54,7 +62,8 @@ class DetailView(generic.DetailView):
                 return redirect('polls:index')
             elif question.is_published():
                 return render(request, self.template_name,
-                              {'question': question})
+                              {'question': question,
+                               "prev_vote": prev_vote})
             else:
                 messages.error(request,
                                message=f"Poll {kwargs['pk']} "
