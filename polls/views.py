@@ -47,7 +47,12 @@ class DetailView(generic.DetailView):
                            message=f"Poll {kwargs['pk']} does not exist.")
             return redirect('polls:index')
         else:
-            if question.is_published():
+            if not question.can_vote():
+                messages.error(request,
+                               message=f"Poll {kwargs['pk']} "
+                                       f"has been closed.")
+                return redirect('polls:index')
+            elif question.is_published():
                 return render(request, self.template_name,
                               {'question': question})
             else:

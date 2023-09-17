@@ -11,7 +11,7 @@
     <header>
         <h1>KU Polls</h1>
         {% if user.is_authenticated %}
-            <p>Welcome back, {{user.first_name.title}}</p>
+            <p>Welcome back, {{user.username}}</p>
             <a href="{% url 'logout' %}">Logout</a>
         {% else %}
             Please <a href="{% url 'login' %}">Login</a> to vote
@@ -31,6 +31,13 @@
             <p>No polls are available.</p>
         {% endif %}
     </main>
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 </body>
 </html>
 
