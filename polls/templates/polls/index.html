@@ -23,6 +23,8 @@
                 <thead>
                     <tr>
                         <th>Question</th>
+                        <th>Pub Date</th>
+                        <th>End Date</th>
                         <th>Results</th>
                         <th>Available</th>
                     </tr>
@@ -32,6 +34,12 @@
                         <tr>
                             <td>
                                 <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+                            </td>
+                            <td>
+                                {{ question.pub_date }}
+                            </td>
+                            <td>
+                                {{ question.end_date }}
                             </td>
                             <td>
                                 <a href="{% url 'polls:results' question.id %}">View Results</a>
