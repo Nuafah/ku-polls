@@ -4,7 +4,7 @@
 
 1. Clone My repository from GitHub to your pc.
     ```
-    git clone https://github.com/Nuafah/ku-polls.git
+    git clone https://github.com/Nuafah/ku-polls
     ```
 2. Change directory to ku-polls.
     ```
