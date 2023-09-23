@@ -19,25 +19,52 @@
     </header>
     <main>
         {% if latest_question_list %}
-            <ul>
-                {% for question in latest_question_list %}
-                    <li>
-                        <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
-                        <a href="{% url 'polls:results' question.id %}">-----View Results</a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Pub Date</th>
+                        <th>End Date</th>
+                        <th>Results</th>
+                        <th>Available</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for question in latest_question_list %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+                            </td>
+                            <td>
+                                {{ question.pub_date }}
+                            </td>
+                            <td>
+                                {{ question.end_date }}
+                            </td>
+                            <td>
+                                <a href="{% url 'polls:results' question.id %}">View Results</a>
+                            </td>
+                            <td>
+                                {% if question.can_vote %}
+                                    ✔
+                                {% else %}
+                                    ✗
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         {% else %}
             <p>No polls are available.</p>
         {% endif %}
     </main>
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </body>
 </html>
-

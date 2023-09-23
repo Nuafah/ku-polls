@@ -1,8 +1,73 @@
-li a {
-    color: orange;
-}
-
 body {
+    font-family: Arial, sans-serif;
     background: white url("images/background.png") no-repeat;
     background-size: cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    margin-bottom: 280px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+ul.messages {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.messages li {
+    margin: 5px 0;
+    padding: 10px;
+}
+
+
+.success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
 }

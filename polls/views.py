@@ -84,11 +84,8 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'polls/detail.html', {
-            'question': question,
-            'error_message': "You didn't select a choice.",
-        })
-    # selected_choice.votes += 1
+        messages.error(request, "Please select a choice")
+        return redirect("polls:detail", pk=question_id)
     # selected_choice.save()
     try:
         # find a vote this user and question
@@ -103,6 +100,7 @@ def vote(request, question_id):
     return HttpResponseRedirect(reverse('polls:results',
                                         args=(question.id,)))
 
+
 def signup(request):
     """Register a new user."""
     if request.method == 'POST':
@@ -113,7 +111,7 @@ def signup(request):
             username = form.cleaned_data.get('username')
             # password input field is named 'password1'
             raw_passwd = form.cleaned_data.get('password1')
-            user = authenticate(username=username,password=raw_passwd)
+            user = authenticate(username=username, password=raw_passwd)
             login(request, user)
             return redirect('polls:index')
         # what if form is not valid?

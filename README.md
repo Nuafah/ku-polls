@@ -8,9 +8,24 @@ additional features.
 This app was created as part of the [Individual Software Process](
 https://cpske.github.io/ISP) course at Kasetsart University.
 
-## Install and Run
+## Install
+Look up for a Installation Guide here [Installation Guide](Installation.md)
 
-to be added.
+## Run
+
+1. Start the server.
+    ```
+    python manage.py runserver
+    ```
+2. in your browser go to http://localhost:8000.
+3. Use Control + C to exit.
+4. Deactivate the virtual environment. 
+   ```
+   deactivate
+   ```
+   
+
+
 
 ## Demo Users
 | Username  | Password    |
