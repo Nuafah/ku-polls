@@ -1,8 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: white url("images/background.png") no-repeat;
+    background-size: cover;
+}
+
 li a {
     color: orange;
 }
 
-body {
-    background: white url("images/background.png") no-repeat;
-    background-size: cover;
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+ul.messages {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.messages li {
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+td.availability {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
