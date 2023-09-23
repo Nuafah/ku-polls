@@ -84,11 +84,8 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'polls/detail.html', {
-            'question': question,
-            'error_message': "You didn't select a choice.",
-        })
-    # selected_choice.votes += 1
+        messages.error(request, "Please select a choice")
+        return redirect("polls:detail", pk=question_id)
     # selected_choice.save()
     try:
         # find a vote this user and question
