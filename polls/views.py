@@ -84,7 +84,9 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        messages.error(request, "Please select a choice")
+        prev_url = request.META.get('HTTP_REFERER')
+        if not 'login' in prev_url:
+            messages.error(request, "Please select a choice")
         return redirect("polls:detail", pk=question_id)
     # selected_choice.save()
     try:
