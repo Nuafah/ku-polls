@@ -18,6 +18,33 @@
   }
 },
 {
+  "model": "polls.question",
+  "pk": 4,
+  "fields": {
+    "question_text": "Which subject is the hardest in year 2/1 ?",
+    "pub_date": "2023-10-01T13:10:11Z",
+    "end_date": "2023-10-31T13:10:20Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 5,
+  "fields": {
+    "question_text": "What is your favourite Video Streaming Platform ?",
+    "pub_date": "2023-10-01T13:11:57Z",
+    "end_date": "2023-11-01T13:17:29Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 6,
+  "fields": {
+    "question_text": "What is your favourite drinks?",
+    "pub_date": "2023-10-01T13:20:28Z",
+    "end_date": "2023-12-01T13:26:17Z"
+  }
+},
+{
   "model": "polls.choice",
   "pk": 1,
   "fields": {
@@ -58,6 +85,142 @@
   }
 },
 {
+  "model": "polls.choice",
+  "pk": 6,
+  "fields": {
+    "question": 4,
+    "choice_text": "ISP"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 7,
+  "fields": {
+    "question": 4,
+    "choice_text": "Alogorithm lab"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 8,
+  "fields": {
+    "question": 4,
+    "choice_text": "Algorithm 2"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 9,
+  "fields": {
+    "question": 4,
+    "choice_text": "Databases"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 10,
+  "fields": {
+    "question": 4,
+    "choice_text": "Computer Network Architecture"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 11,
+  "fields": {
+    "question": 5,
+    "choice_text": "Netflix"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 12,
+  "fields": {
+    "question": 5,
+    "choice_text": "Disney+ Hotstar"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 13,
+  "fields": {
+    "question": 5,
+    "choice_text": "HBO Max/GO"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 14,
+  "fields": {
+    "question": 5,
+    "choice_text": "Amazon Prime Video"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 15,
+  "fields": {
+    "question": 5,
+    "choice_text": "Viu"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 16,
+  "fields": {
+    "question": 5,
+    "choice_text": "Apple TV+"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 17,
+  "fields": {
+    "question": 6,
+    "choice_text": "Tea"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 18,
+  "fields": {
+    "question": 6,
+    "choice_text": "Coffee"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 19,
+  "fields": {
+    "question": 6,
+    "choice_text": "Soft drinks"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 20,
+  "fields": {
+    "question": 6,
+    "choice_text": "Juice"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 21,
+  "fields": {
+    "question": 6,
+    "choice_text": "Water"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 22,
+  "fields": {
+    "question": 6,
+    "choice_text": "Others"
+  }
+},
+{
   "model": "polls.vote",
   "pk": 1,
   "fields": {
@@ -87,6 +250,14 @@
   "fields": {
     "choice": 2,
     "user": 1
+  }
+},
+{
+  "model": "polls.vote",
+  "pk": 5,
+  "fields": {
+    "choice": 2,
+    "user": 4
   }
 }
 ]
